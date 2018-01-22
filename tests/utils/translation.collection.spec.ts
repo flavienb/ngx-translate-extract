@@ -22,7 +22,7 @@ describe('StringCollection', () => {
 
 	it('should add key with default value', () => {
 		collection = collection.add('theKey');
-		expect(collection.get('theKey')).to.equal('');
+		expect(collection.get('theKey')).to.be.null;
 	});
 
 	it('should not mutate collection when adding key', () => {
@@ -32,7 +32,7 @@ describe('StringCollection', () => {
 
 	it('should add array of keys with default value', () => {
 		collection = collection.addKeys(['key1', 'key2']);
-		expect(collection.values).to.deep.equal({ key1: '', key2: '' });
+		expect(collection.values).to.deep.equal({ key1: null, key2: null });
 	});
 
 	it('should return true when collection has key', () => {
@@ -70,7 +70,7 @@ describe('StringCollection', () => {
 	it('should intersect with passed collection', () => {
 		collection = collection.addKeys(['red', 'green', 'blue']);
 		const newCollection = new TranslationCollection( { red: '', blue: '' });
-		expect(collection.intersect(newCollection).values).to.deep.equal({ red: '', blue: '' });
+		expect(collection.intersect(newCollection).values).to.deep.equal({ red: null, blue: null });
 	});
 
 	it('should intersect with passed collection and keep original values', () => {
